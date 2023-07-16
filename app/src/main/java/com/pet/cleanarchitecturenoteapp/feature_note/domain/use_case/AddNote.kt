@@ -7,7 +7,6 @@ import com.pet.cleanarchitecturenoteapp.feature_note.domain.repository.NoteRepos
 class AddNote(
     private val repository: NoteRepository
 ) {
-
     @Throws(InvalidNoteException::class)
     suspend operator fun invoke(note: Note) {
         if (note.title.isBlank()) {
