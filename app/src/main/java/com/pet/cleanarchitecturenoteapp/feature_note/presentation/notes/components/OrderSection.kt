@@ -1,6 +1,5 @@
 package com.pet.cleanarchitecturenoteapp.feature_note.presentation.notes.components
 
-import android.inputmethodservice.Keyboard
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -21,25 +20,31 @@ fun OrderSection(
     Column(
         modifier = modifier
     ) {
-        DefaultRadioButton(
-            text = "Title",
-            selected = noteOrder is NoteOrder.Title,
-            onSelect = { onOrderChange(NoteOrder.Title(noteOrder.orderType)) }
-        )
-        Spacer(modifier = Modifier.width(8.dp))
+        Row(
+            modifier = Modifier
+        ) {
 
-        DefaultRadioButton(
-            text = "Date",
-            selected = noteOrder is NoteOrder.Date,
-            onSelect = { onOrderChange(NoteOrder.Color(noteOrder.orderType)) }
-        )
-        Spacer(modifier = Modifier.width(8.dp))
 
-        DefaultRadioButton(
-            text = "Color",
-            selected = noteOrder is NoteOrder.Color,
-            onSelect = { onOrderChange(NoteOrder.Color(noteOrder.orderType)) }
-        )
+            DefaultRadioButton(
+                text = "Title",
+                selected = noteOrder is NoteOrder.Title,
+                onSelect = { onOrderChange(NoteOrder.Title(noteOrder.orderType)) }
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+
+            DefaultRadioButton(
+                text = "Date",
+                selected = noteOrder is NoteOrder.Date,
+                onSelect = { onOrderChange(NoteOrder.Date(noteOrder.orderType)) }
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+
+            DefaultRadioButton(
+                text = "Color",
+                selected = noteOrder is NoteOrder.Color,
+                onSelect = { onOrderChange(NoteOrder.Color(noteOrder.orderType)) }
+            )
+        }
 
         Spacer(modifier = Modifier.height(16.dp))
 
