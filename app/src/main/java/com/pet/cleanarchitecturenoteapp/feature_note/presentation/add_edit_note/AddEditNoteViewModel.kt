@@ -1,20 +1,19 @@
 package com.pet.cleanarchitecturenoteapp.feature_note.presentation.add_edit_note
 
 import androidx.compose.runtime.State
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.graphics.toArgb
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.pet.cleanarchitecturenoteapp.feature_note.domain.model.InvalidNoteException
 import com.pet.cleanarchitecturenoteapp.feature_note.domain.model.Note
 import com.pet.cleanarchitecturenoteapp.feature_note.domain.use_case.NoteUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
-import javax.inject.Inject
-import androidx.lifecycle.viewModelScope
-import com.pet.cleanarchitecturenoteapp.feature_note.domain.model.InvalidNoteException
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
 class AddEditNoteViewModel @Inject constructor(
